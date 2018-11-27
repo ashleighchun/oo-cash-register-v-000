@@ -1,16 +1,14 @@
 require "pry"
 class CashRegister
   
-  attr_accessor :total, :quantity 
+  attr_accessor :total, :discount, :quantity 
   
-  def initialize(total = 0)
-    @total = total
+  def initialize(discount = 0)
+    @discount = discount
+    @total = 0
     @quantity
   
-    def cash_register_with_discount
-      self.apply_discount
-      
-    end
+    
   end
 
   
@@ -20,6 +18,11 @@ class CashRegister
   # binding.pry
   end 
   
+  def cash_register_with_discount
+      self.apply_discount
+      
+    end
+    
   def apply_discount
     #context 'the cash register was initialized with an employee discount' do
       #it 'applies the discount to the total price' do
