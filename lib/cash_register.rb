@@ -1,19 +1,20 @@
 require "pry"
 class CashRegister
   
-  attr_accessor :total, :discount, :quantity 
+  attr_accessor :total, :discount, :quantity, :items
   
   def initialize(discount = 0)
     @discount = discount
     @total = 0
     @quantity
-  
+    @items = []
     
   end
 
   
   def add_item(title, price, quantity = 1)
     @total = @total + (price*quantity)
+    @items << title
  
   # binding.pry
   end 
@@ -34,8 +35,8 @@ class CashRegister
     binding.pry
   end 
   
-  def items
-    
+  def self.items
+    @items
   end 
   
   def void_last_transaction
